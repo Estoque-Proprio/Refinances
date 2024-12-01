@@ -1,73 +1,28 @@
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
+  <a href="http://nestjs.com/" target="blank"><img src="docs/refinances.png" width="200" alt="Nest Logo" /></a>
 </p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+## Sobre
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Refinances é um projeto feito visando centralizar a contabilidade do Revendi. Ele gera todas as NFS-e para os pagamentos recebidos e faz a conciliação das transações bancárias.
 
-## Installation
+Em resumo, ele recebe webhooks da Stripe informando quando uma assinatura é convertida ou renovada e gera as notas fiscais para esses pagamentos. Ao mesmo tempo que também processa os pagamentos da Stripe recebidos na conta bancária e faz a conciliação dos valores recebidos com as notas emitidas.
 
-```bash
-$ yarn install
-```
+Além das automatizações, também permite lançamentos que fogem da Stripe ou de despesas pagas tanto via transferência bancária, como por cartão de crédito. Por fim, pode-se exportar todos os dados gerados para poderem ser enviados para contabilidade.
 
-## Running the app
+## Empresas integradas.
 
-```bash
-# development
-$ yarn run start
+A ideia é que seja possível acoplar outras empresas respeitando os contratos definidos. Inicialmente, esse projeto integra as empresas utilizadas pelo Revendi para administração.
 
-# watch mode
-$ yarn run start:dev
+- Stripe
+- Tiny ERP
+- Agilize
 
-# production mode
-$ yarn run start:prod
-```
+## Motivação.
 
-## Test
+Conforme o produto escala, fica extremamente trabalhoso fazer a emissão de todas as notas fiscais e conciliar esses valores. Os pagamentos da Stripe são feitos em lote, então uma determinada transferência agrupa vários pagamentos já com as devidas taxas aplicadas, fazendo com que seja necessário consultar manualmente no painel da Stripe quais foram os pagamentos associados para ser possível conciliar.
 
-```bash
-# unit tests
-$ yarn run test
-
-# e2e tests
-$ yarn run test:e2e
-
-# test coverage
-$ yarn run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+A filosofia do Revendi é automatizar tudo que seja possível no digital para podermos focar em prover um produto de qualidade com atendimento totalmente humano.
