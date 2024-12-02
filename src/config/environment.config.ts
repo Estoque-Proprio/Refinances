@@ -4,4 +4,7 @@ export default () => ({
     secretKey: process.env.STRIPE_SECRET_KEY,
     webhookSecret: process.env.STRIPE_WEBHOOK_SECRET,
   },
+  tiny: {
+    apiKey: process.env.TINY_API_KEY,
+  },
 });
